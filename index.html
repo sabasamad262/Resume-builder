@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder | Future rafay</title>
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="big-menu-container">
+    <div class="menu-container">
+        <div class="menu-page">
+            <h1>Welcome to CV for Future</h1>
+            <p>Build your personalized resume effortlessly with our Resume Builder.</p>
+            
+           
+          
+    
+
+            <button class="create-resume-btn" onclick="createResumebuttonHandler()">Create Your Own</button>
+    
+            <div class="credits">
+                <p>Built with ❤️ by <a href="" target="_blank">Saba Samad</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="big-container">
+        <div class="container">
+            <h1 id="Credit">Made by SABA SAMAD </h1><br><br>
+            <h1>Dynamic Resume Builder
+            </h1><br><br>
+
+            <form id="resume-form">
+
+                <label for="name">Enter Name:</label>
+                <p>Note: To fill form autometically double click the name element</p>
+                <input ondblclick="loadFormData()" type="text" id="name" placeholder="Enter Your Name" required>
+
+                <label for="username">Enter Username:</label>
+                <input type="text" id="username" placeholder="Enter unique username" required>
+
+                <label for="photo">Upload photo:</label>
+                <input type="file" id="photo" required>
+                <p>Image should be Square and Clear</p>
+
+                <label for="title">Title:</label>
+                <input type="text" id="title" placeholder="Title you have" required>
+
+                <fieldset>
+                    <legend>Personal Details</legend>
+
+                    <label for="location">location:</label>
+                    <input type="text" id="location" placeholder="State, City" required>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" placeholder="Email" required>
+
+                    <label for="phone">Phone:</label>
+                    <input type="tel" id="phone" placeholder="000-0000-0000" required>
+
+                </fieldset>
+
+                <label for="profile">About you:</label>
+                <input type="text" id="profile" placeholder="Some lines about you" required>
+
+                <fieldset>
+                    <legend>Experience</legend>
+                    <div id="experience-item">
+                        <label for="companyName">Company name:</label>
+                        <input type="text" id="companyName" placeholder="ABC Tech Solutions" required>
+
+                        <label for="companyLocation">Company location:</label>
+                        <input type="text" id="companyLocation" placeholder="Gulshan maymar Karachi, Pakistan" required>
+
+                        <label for="desgination">Designation:</label>
+                        <input type="text" id="desgination" placeholder="Front-End Developer Intern" required>
+
+                        <label for="jobTime">Time period:</label>
+                        <input type="text" id="JobTime" placeholder="2022-2024" required>
+
+                        <label for="jobDescription">Description:</label>
+                        <input type="text" id="jobDescription" placeholder="Some thing about your job (optional)">
+                    </div>
+                    <button type="button" id="add-experience"><b>+</b></button>
+                    <button type="button" id="remove-experience"><b>-</b></button>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Education</legend>
+                    <div id="education-item">
+
+                        <label for="instituteName">Institute name:</label>
+                        <input type="text" id="instituteName" placeholder="Govt. National College Karachi"
+                            required>
+
+                        <label for="degree">Degree name:</label>
+                        <input type="text" id="degree" placeholder="Intermediate" required>
+
+                        <label for="field">Which field:</label>
+                        <input type="text" id="field" placeholder="Pre-Engineering">
+
+                        <label for="passed-year">Year passed:</label>
+                        <input type="text" id="passed-year" placeholder="2023-Present" required>
+                    </div>
+                    <button type="button" id="add-education"><b>+</b></button>
+                    <button type="button" id="remove-education"><b>-</b></button>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Skills</legend>
+                    <textarea id="skills" placeholder="Any skills (seperate multiple skills by comma)" rows="5"
+                        required></textarea>
+                </fieldset>
+
+                <label for="languages">Languages:</label>
+                <input type="text" id="languages" placeholder="E.g English, Urdu" required>
+
+                <div class="btn">
+                    <button type="submit" id="submit">Let's Create</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="dynamic-resume-container">
+        <div class="resume-container">
+            <div class="row-container">
+ 
+                <div class="name-container">
+                    <h1 id="resumeName">Saba Samad</h1>
+                    <h3 id="resumeTitle">Front End Developer</h3>
+                </div>
+            </div>
+            <div class="front-col-container">
+                <div class="personal-info-container">
+                    <div class="about">
+                        <h4>About</h4>
+                        <p id="resumeAbout">
+                        </p>
+                    </div>
+                    <div class="contact">
+                        <h4>Contact</h4>
+                        <div>
+                            <i class="fa-solid fa-square-phone"></i><span id="resumePhone"></span> <br />
+                            <i class="fa-solid fa-paper-plane"></i><span id="resumeEmail"> </span><br />
+                            <i class="fa-solid fa-map-location-dot"></i><span id="resumeLocation"></span>
+
+                        </div>
+                    </div>
+                    <div class="language">
+                        <h4>Language</h4>
+                        <ul>
+                            <li id="resumeLanguage"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="back-col-container">
+                <div class="professional-info-container">
+                    <div class="experience">
+                        <h4>Experience</h4>
+                        <h2>
+                            <b><span id="resumeDesignation"></span> at <span id="resumeCompanyName"></span> <br />
+                            </h2>
+                            <span id="resumeCompanyLocation"></span> <br />
+                            <span id="resumeCompanyJobTime"></span> </b>
+                        <p id="resumeJobDescription"></p>
+                    </div>
+                    <div class="education">
+                        <h4>Education</h4>
+                        <h2 id="resumeDegree"><b></b></h2>
+                        <p>
+                            <u><span id="resumeIntituteName"></span></u><br />
+                            <span id="resumeField"></span><span id="resumeTimePeriod"></span>
+                        </p>
+                    </div>
+                    <div class="skills">
+                        <h4>Skills</h4>
+                        <ul>
+                            <li id="resumeSkills"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="button-container">
+            <button id="editResumeBtn">Edit Resume</button>
+            <button id="downloadPdfBtn">Download as PDF</button>
+            <button id="GoHomeBtn" onclick="window.location.reload()">Go Home</button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
